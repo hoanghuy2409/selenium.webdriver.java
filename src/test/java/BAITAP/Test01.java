@@ -41,7 +41,11 @@ public class Test01 {
 
 
             File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+<<<<<<< HEAD
             String png = ("E:\\selenium-webdriver-java\\src\\test\\java\\BAITAP\\test01.png");
+=======
+            String png = ("C:\\Users\\huyth\\Desktop\\SWT302\\selenium-webdriver-java\\src\\test\\java\\BAITAP\\test01.png");
+>>>>>>> 604fa0a28721d65138f95308e9f55a45781df945
                    FileUtils.copyFile(srcFile, new File(png));
         } catch (Exception e) {
             e.printStackTrace();

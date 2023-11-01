@@ -11,7 +11,7 @@ public class CartPage {
     By AddtocardLink = By.xpath("//button[@title='Add to Cart']");
 
     By countryInputlocator = By.xpath("//select[@id='country']");
-    By proviceInputlocator = By.xpath("//input[@id='region']");
+    By proviceInputlocator = By.xpath("//select[@id='region_id']");
 
     By zipInputlocator = By.xpath("//input[@id='postcode']");
 
@@ -47,10 +47,9 @@ public class CartPage {
         return countryInputlocator;
     }
 
-    public void enterProvice(String provice) {
+    public  By chooseProvice() {
         WebElement element = driver.findElement(proviceInputlocator);
-        element.clear();
-        element.sendKeys(provice);
+        return proviceInputlocator;
     }
 
     public void enterZIP(String zipid) {

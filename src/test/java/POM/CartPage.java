@@ -31,6 +31,16 @@ public class CartPage {
     By vieworderLink = By.xpath("//tr[@class='first odd']//a[contains(text(),'View Order')]");
     By printorderLink = By.cssSelector(".link-print");
 
+    By MyOrdersLink = By.cssSelector("div[class='main-container col2-left-layout'] li:nth-child(4) a:nth-child(1)");
+    By ReOrderLink = By.cssSelector("tr[class='first odd'] a[class='link-reorder']");
+
+    By QTyLink = By.cssSelector("input[title='Qty']");
+    By UpdateLink = By.cssSelector("button[title='Update'] span span");
+
+    By GrandTotalBeforeLink = By.cssSelector("strong span[class='price']");
+
+
+
     public CartPage(WebDriver driver){
         this.driver = driver;
     }
@@ -87,14 +97,36 @@ public class CartPage {
         driver.findElement(proceedLink).click();
     }
 
-    public void clickemyorderLink() {
-        driver.findElement(myorderLink).click();
+    public void clickReOrderLink() {
+        driver.findElement(ReOrderLink).click();
     }
     public void vieworderLink() {
         driver.findElement(vieworderLink).click();
     }
     public void printorderLink() {
         driver.findElement(printorderLink).click();
+    }
+
+    public void clickMyOrdersLink() {
+        driver.findElement(MyOrdersLink).click();
+    }
+    public void clickQTyLink() {
+        driver.findElement(QTyLink).click();
+    }
+
+    public void enterQTy(String QTy) {
+        WebElement element = driver.findElement(QTyLink);
+        element.clear();
+        element.sendKeys(QTy);
+    }
+
+    public void clickUpdateLink() {
+        driver.findElement(UpdateLink).click();
+    }
+
+    public String getGrandTotalBefore(){
+        String GrantotalBefore = driver.findElement(GrandTotalBeforeLink).getText();
+        return GrantotalBefore;
     }
 
 }

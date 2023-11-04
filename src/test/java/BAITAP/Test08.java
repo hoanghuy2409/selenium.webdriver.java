@@ -3,24 +3,22 @@ package BAITAP;
 import POM.CartPage;
 import POM.CheckoutPage;
 import POM.LoginPage;
-import POM.RegisterPage;
-import driver.driverFactory;
 import driver.driverFactory_Firefox;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import java.io.File;
-import org.openqa.selenium.support.ui.Select;
 
-import static org.testng.AssertJUnit.assertEquals;
 
 @Test
-public class Test06 {
-    public static void test06() {
+public class Test08 {
+    public static void test08() {
 
 
         String email_address ="thh@gmail.com";
         String password = "hoanghuy";
+        String QTY = "10";
         String country = "United States";
         String provice = "Florida";
         String zipid = "1234";
@@ -40,30 +38,33 @@ public class Test06 {
             Thread.sleep(1000);
 
             loginPage.clickMyAccountLink();
-            Thread.sleep(2000);
-
 
             loginPage.enterEmail(email_address);
-            Thread.sleep(1000);
+
+
             loginPage.enterPassword(password);
-            Thread.sleep(1000);
+
             loginPage.clickloginButton();
             Thread.sleep(1000);
 
             for(String handle: driver.getWindowHandles()){
                 driver.switchTo().window(handle);
             }
-
-            CartPage cartPage = new CartPage(driver);
-
-            cartPage.clickmyWishListLink();
+             CartPage cartPage = new CartPage(driver);
             Thread.sleep(1000);
+            cartPage.clickReOrderLink();
+            Thread.sleep(2000);
+            String GrandBefore = cartPage.getGrandTotalBefore();
+            System.out.println("Giá khi chưa thay đổi số lượng là: " + GrandBefore);
+            cartPage.clickQTyLink();
+            Thread.sleep(2000);
+           cartPage.enterQTy(QTY);
+            Thread.sleep(1000);
+          cartPage.clickUpdateLink();
+            String GrandAfter = cartPage.getGrandTotalBefore();
+            System.out.println("Giá khi cập nhật số lượng là: " + GrandAfter);
 
-            for(String handle: driver.getWindowHandles()){
-                driver.switchTo().window(handle);
-            }
 
-            cartPage.clickAddtocardLink();
             Select drpCountry = new Select(driver.findElement(cartPage.chooseCountry()));
             drpCountry.selectByVisibleText(country);
             Thread.sleep(1000);
@@ -135,12 +136,12 @@ public class Test06 {
             for(String handle: driver.getWindowHandles()){
                 driver.switchTo().window(handle);
             }
+
+            Thread.sleep(2000);
             File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-            String png = ("E:\\selenium-webdriver-java\\src\\test\\java\\BAITAP\\test06.png");
+            String png = ("E:\\selenium-webdriver-java\\src\\test\\java\\BAITAP\\test08.png");
             FileUtils.copyFile(srcFile, new File(png));
             Thread.sleep(2000);
-
-
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -148,6 +149,7 @@ public class Test06 {
         driver.quit();
     }
 }
+
 
 
 

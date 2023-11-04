@@ -1,18 +1,14 @@
 package BAITAP;
 
 import POM.CartPage;
-import POM.CheckoutPage;
 import POM.LoginPage;
-import POM.RegisterPage;
 import driver.driverFactory;
 import driver.driverFactory_Firefox;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.testng.annotations.Test;
 import java.io.File;
-import org.openqa.selenium.support.ui.Select;
 
-import static org.testng.AssertJUnit.assertEquals;
 
 @Test
 public class Test07 {
@@ -47,26 +43,23 @@ public class Test07 {
                 driver.switchTo().window(handle);
             }
             CartPage cartPage = new CartPage(driver);
-            Thread.sleep(1000);
-            cartPage.clickemyorderLink();
+            Thread.sleep(2000);
+            cartPage.clickMyOrdersLink();
             Thread.sleep(1000);
             cartPage.vieworderLink();
             Thread.sleep(1000);
             cartPage.printorderLink();
-            Thread.sleep(2000);
+
 
             for(String handle: driver.getWindowHandles()){
                 driver.switchTo().window(handle);
             }
             Thread.sleep(2000);
+
             File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
             String png = ("E:\\selenium-webdriver-java\\src\\test\\java\\BAITAP\\test07.png");
             FileUtils.copyFile(srcFile, new File(png));
             Thread.sleep(2000);
-
-
-
-
 
         } catch (Exception e) {
             e.printStackTrace();

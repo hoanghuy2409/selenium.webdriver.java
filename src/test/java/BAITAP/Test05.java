@@ -15,9 +15,9 @@ import static org.testng.AssertJUnit.assertEquals;
 public class Test05 {
     public static void test05() {
 
-        String firstname = "HHuy";
+        String firstname = "HHHuy";
         String lastname = "Trann";
-        String email_address ="HHuytrann2409@gmail.com";
+        String email_address ="HHHuytrann2409@gmail.com";
         String password = "huytran";
         String confirm_password = password;
 

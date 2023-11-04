@@ -27,8 +27,9 @@ public class CartPage {
     By grandtotalLink = By.cssSelector("strong span[class='price']");
 
     By proceedLink = By.xpath("//li[@class='method-checkout-cart-methods-onepage-bottom']//button[@title='Proceed to Checkout']//span//span[contains(text(),'Proceed to Checkout')]");
-
-
+    By myorderLink = By.cssSelector("div[class='main-container col2-left-layout'] li:nth-child(4) a:nth-child(1)");
+    By vieworderLink = By.xpath("//tr[@class='first odd']//a[contains(text(),'View Order')]");
+    By printorderLink = By.cssSelector(".link-print");
 
     public CartPage(WebDriver driver){
         this.driver = driver;
@@ -85,4 +86,15 @@ public class CartPage {
     public void clickproceedLink(){
         driver.findElement(proceedLink).click();
     }
+
+    public void clickemyorderLink() {
+        driver.findElement(myorderLink).click();
+    }
+    public void vieworderLink() {
+        driver.findElement(vieworderLink).click();
+    }
+    public void printorderLink() {
+        driver.findElement(printorderLink).click();
+    }
+
 }

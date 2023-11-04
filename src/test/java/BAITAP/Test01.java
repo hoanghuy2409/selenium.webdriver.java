@@ -1,6 +1,7 @@
 package BAITAP;
 
 import driver.driverFactory;
+import driver.driverFactory_Firefox;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -17,7 +18,7 @@ public class Test01 {
     public static void test01() {
 
         //1. Init web-driver session
-        WebDriver driver = driverFactory.getChromeDriver();
+        WebDriver driver = driverFactory_Firefox.getFireFoxDriver();
         try {
             //2. Open target page
             driver.get("http://live.techpanda.org/");

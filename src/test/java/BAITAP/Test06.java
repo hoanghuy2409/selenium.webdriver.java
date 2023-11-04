@@ -5,6 +5,7 @@ import POM.CheckoutPage;
 import POM.LoginPage;
 import POM.RegisterPage;
 import driver.driverFactory;
+import driver.driverFactory_Firefox;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.testng.annotations.Test;
@@ -18,7 +19,7 @@ public class Test06 {
     public static void test06() {
 
 
-        String email_address ="thhuytc6@gmail.com";
+        String email_address ="thh@gmail.com";
         String password = "hoanghuy";
         String country = "United States";
         String provice = "Florida";
@@ -26,11 +27,12 @@ public class Test06 {
         String address ="Long Thanh - Vinh Loi - Bac Lieu";
         String city = "TP Bac Lieu";
         String telephone = "0812281545";
+        String newadress = "New Address";
 
 
 
 
-        WebDriver driver = driverFactory.getChromeDriver();
+        WebDriver driver = driverFactory_Firefox.getFireFoxDriver();
         try {
 
             driver.get("http://live.techpanda.org/");
@@ -94,6 +96,11 @@ public class Test06 {
             }
 
             CheckoutPage checkOutPage = new CheckoutPage(driver);
+            checkOutPage.clickselecbillingadress();
+            Thread.sleep(1000);
+            Select drpselect = new Select(driver.findElement(checkOutPage.chooseAddress()));
+            drpselect.selectByVisibleText(newadress);
+            Thread.sleep(1000);
             checkOutPage.enterAddress(address);
             Thread.sleep(1000);
             checkOutPage.enterCity(city);
@@ -107,6 +114,9 @@ public class Test06 {
             Thread.sleep(1000);
             checkOutPage.clickContinuebutton();
             Thread.sleep(2000);
+            for(String handle: driver.getWindowHandles()){
+                driver.switchTo().window(handle);
+            }
             checkOutPage.clickshippinginformationLink();
             Thread.sleep(2000);
             checkOutPage.clickContinuebutton2();

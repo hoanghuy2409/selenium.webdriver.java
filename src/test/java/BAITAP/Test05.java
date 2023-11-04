@@ -2,6 +2,7 @@ package BAITAP;
 
 import POM.RegisterPage;
 import driver.driverFactory;
+import driver.driverFactory_Firefox;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.testng.AssertJUnit;
@@ -22,7 +23,7 @@ public class Test05 {
 
 
 
-        WebDriver driver = driverFactory.getChromeDriver();
+        WebDriver driver = driverFactory_Firefox.getFireFoxDriver();
         try {
 
             driver.get("http://live.techpanda.org/");

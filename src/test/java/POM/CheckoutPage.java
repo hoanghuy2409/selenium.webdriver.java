@@ -1,4 +1,5 @@
 package POM;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,7 +23,19 @@ public class CheckoutPage {
     By placeorderLink = By.cssSelector("button[title='Place Order']");
     By orderidLink = By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[1]/p[1]/a[1]");
     By selecbillingadress = By.cssSelector("#billing-address-select");
-    public CheckoutPage(WebDriver driver){
+    By PriceLink = By.cssSelector("body > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(5) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(1) > td:nth-child(2) > span:nth-child(1)");
+    By PriceDiscountLink = By.cssSelector("tbody tr:nth-child(2) td:nth-child(2) span:nth-child(1)");
+    By MobileLink = By.cssSelector("a[href='http://live.techpanda.org/index.php/mobile.html']");
+    By CouponCodeLink = By.cssSelector("body > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > form:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > input:nth-child(1)");
+    By AddIphoneLink = By.cssSelector("body > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > ul:nth-child(2) > li:nth-child(1) > div:nth-child(2) > div:nth-child(4) > button:nth-child(1) > span:nth-child(1) > span:nth-child(1)");
+    By DiscoundLink = By.cssSelector("body > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(5) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(2) > td:nth-child(1)");
+    By ApplyLink = By.cssSelector("button[title='Apply'] span span");
+
+    By GrandTotalBefore = By.cssSelector("body div div div div div div div div table tfoot tr td strong span");
+
+    By GrandTotalAfter = By.cssSelector("body div div div div div div div div table tfoot tr td strong span");
+
+    public CheckoutPage(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -79,7 +92,8 @@ public class CheckoutPage {
         driver.findElement(continuebuttonLink4).click();
     }
 
-    public String getOrderId(){
+
+    public String getOrderId() {
         String OrderId = driver.findElement(orderidLink).getText();
         return OrderId;
     }
@@ -95,6 +109,49 @@ public class CheckoutPage {
     public By chooseAddress() {
         WebElement address = driver.findElement(selecbillingadress);
         return selecbillingadress;
+    }
+
+    public void clickMobileLink() {
+        driver.findElement(MobileLink).click();
+    }
+
+    public void clickAddIphoneLink() {
+        driver.findElement(AddIphoneLink).click();
+    }
+
+    public void enterCouponCode(String couponcode) {
+        WebElement element = driver.findElement(CouponCodeLink);
+        element.clear();
+        element.sendKeys(couponcode);
+    }
+
+    public void clickAppylyLink() {
+        driver.findElement(ApplyLink).click();
+    }
+
+    public String getDiscount() {
+        String Discount = driver.findElement(DiscoundLink).getText();
+        return Discount;
+    }
+
+    public String getPrice() {
+        String Price = driver.findElement(PriceLink).getText();
+        return Price;
+    }
+
+    public String getPriceDiscount() {
+        String PriceDiscount = driver.findElement(PriceDiscountLink).getText();
+        return PriceDiscount;
+    }
+
+    public String getGrandTotalBefore() {
+        String GranTotalBefore = driver.findElement(GrandTotalBefore).getText();
+        return GranTotalBefore;
+    }
+
+    public String getGrandTotalAfter() {
+        String GranTotalAfter = driver.findElement(GrandTotalAfter).getText();
+        return GranTotalAfter;
     }
 
 }

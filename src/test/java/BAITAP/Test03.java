@@ -1,6 +1,6 @@
 package BAITAP;
 
-import driver.driverFactory;
+
 import driver.driverFactory_Firefox;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
@@ -19,11 +19,11 @@ public class Test03 {
             driver.get("http://live.techpanda.org/");
 
             driver.findElement(By.linkText("MOBILE")).click();
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
             WebElement Add = driver.findElement(By.xpath("(//span[contains(text(),'Add to Cart')])[2]"));
             Add.click();
-            Thread.sleep(2000);
+            Thread.sleep(1000);
             WebElement Qty = driver.findElement(By.xpath("//input[@title='Qty']"));
             Qty.clear();
             Thread.sleep(1000);
@@ -45,7 +45,7 @@ public class Test03 {
             Thread.sleep(1000);
             WebElement Emptycartlink = driver.findElement(By.xpath("//span[contains(text(),'Empty Cart')]"));
             Emptycartlink.click();
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
             String shoppingcart = driver.findElement(By.cssSelector("div[class='page-title'] h1")).getText();
 
@@ -55,7 +55,7 @@ public class Test03 {
             } catch (Error e) {
                 e.printStackTrace();
             }
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
             File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
             String png = ("E:\\selenium-webdriver-java\\src\\test\\java\\BAITAP\\test03.png");

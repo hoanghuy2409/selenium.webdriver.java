@@ -1,6 +1,6 @@
 package BAITAP;
 
-import driver.driverFactory;
+
 import driver.driverFactory_Firefox;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
@@ -20,7 +20,7 @@ public class Test04 {
             driver.get("http://live.techpanda.org/");
 
             driver.findElement(By.linkText("MOBILE")).click();
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
             WebElement CpSony = driver.findElement(By.xpath("(//a[@class='link-compare'][normalize-space()='Add to Compare'])[2]"));
             CpSony.click();
@@ -30,7 +30,7 @@ public class Test04 {
             Thread.sleep(1000);
 
             driver.findElement(By.xpath("(//span[contains(text(),'Compare')])[2]")).click();
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
             String MainWindow = driver.getWindowHandle();
             System.out.println(MainWindow);
@@ -39,12 +39,12 @@ public class Test04 {
                 System.out.println(window);
                 if(!MainWindow.equalsIgnoreCase(window)){
                     driver.switchTo().window(window);
-                    Thread.sleep(2000);
+                    Thread.sleep(1000);
                     System.out.println("Đã chuyển đến Popup Compare Product");
                     System.out.println(driver.getTitle());
                 }
             }
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
             String title = driver.findElement(By.xpath("//h1[normalize-space()='Compare Products']")).getText();
 
@@ -54,7 +54,7 @@ public class Test04 {
             } catch (Error e) {
                 e.printStackTrace();
             }
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
             File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
             String png = ("E:\\selenium-webdriver-java\\src\\test\\java\\BAITAP\\test04.png");

@@ -2,7 +2,6 @@ package BAITAP;
 
 import POM.CartPage;
 import POM.LoginPage;
-import driver.driverFactory;
 import driver.driverFactory_Firefox;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
@@ -19,8 +18,6 @@ public class Test07 {
         String password = "hoanghuy";
 
 
-
-
         WebDriver driver = driverFactory_Firefox.getFireFoxDriver();
         try {
 
@@ -29,7 +26,7 @@ public class Test07 {
             Thread.sleep(1000);
 
             loginPage.clickMyAccountLink();
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
 
             loginPage.enterEmail(email_address);
@@ -43,7 +40,7 @@ public class Test07 {
                 driver.switchTo().window(handle);
             }
             CartPage cartPage = new CartPage(driver);
-            Thread.sleep(2000);
+            Thread.sleep(1000);
             cartPage.clickMyOrdersLink();
             Thread.sleep(1000);
             cartPage.vieworderLink();
@@ -54,12 +51,12 @@ public class Test07 {
             for(String handle: driver.getWindowHandles()){
                 driver.switchTo().window(handle);
             }
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
             File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
             String png = ("E:\\selenium-webdriver-java\\src\\test\\java\\BAITAP\\test07.png");
             FileUtils.copyFile(srcFile, new File(png));
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
         } catch (Exception e) {
             e.printStackTrace();

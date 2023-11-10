@@ -38,12 +38,11 @@ public class Test08 {
             Thread.sleep(1000);
 
             loginPage.clickMyAccountLink();
-
+            Thread.sleep(1000);
             loginPage.enterEmail(email_address);
-
-
+            Thread.sleep(1000);
             loginPage.enterPassword(password);
-
+            Thread.sleep(1000);
             loginPage.clickloginButton();
             Thread.sleep(1000);
 
@@ -129,7 +128,7 @@ public class Test08 {
             checkOutPage.clickContinuebutton4();
             Thread.sleep(2000);
             checkOutPage.clickplaceorderLink();
-            Thread.sleep(3000);
+            Thread.sleep(2000);
 
             String OrderId = checkOutPage.getOrderId();
             System.out.println("Đơn hàng đã được tạo với ID: " + OrderId);
@@ -137,11 +136,11 @@ public class Test08 {
                 driver.switchTo().window(handle);
             }
 
-            Thread.sleep(2000);
+            Thread.sleep(1000);
             File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
             String png = ("E:\\selenium-webdriver-java\\src\\test\\java\\BAITAP\\test08.png");
             FileUtils.copyFile(srcFile, new File(png));
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
         } catch (Exception e) {
             e.printStackTrace();

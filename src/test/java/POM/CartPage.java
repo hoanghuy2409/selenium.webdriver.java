@@ -40,8 +40,7 @@ public class CartPage {
     By GrandTotalBeforeLink = By.cssSelector("strong span[class='price']");
 
 
-
-    public CartPage(WebDriver driver){
+    public CartPage(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -58,7 +57,7 @@ public class CartPage {
         return countryInputlocator;
     }
 
-    public  By chooseProvice() {
+    public By chooseProvice() {
         WebElement element = driver.findElement(proviceInputlocator);
         return proviceInputlocator;
     }
@@ -73,7 +72,7 @@ public class CartPage {
         driver.findElement(estimateLink).click();
     }
 
-    public String getShippingcost(){
+    public String getShippingcost() {
         String Shippingcost = driver.findElement(fixedLink).getText().substring(7);
         return Shippingcost;
     }
@@ -85,24 +84,29 @@ public class CartPage {
     public void clickupdatetotalLink() {
         driver.findElement(updatetotalLink).click();
     }
-    public String gettotalWithoutshipcost(){
+
+    public String gettotalWithoutshipcost() {
         String totalwithoutshipcost = driver.findElement(totalwithoutshipcostLink).getText();
         return totalwithoutshipcost;
     }
-    public String getgrandtotal(){
+
+    public String getgrandtotal() {
         String grandtotal = driver.findElement(grandtotalLink).getText();
         return grandtotal;
     }
-    public void clickproceedLink(){
+
+    public void clickproceedLink() {
         driver.findElement(proceedLink).click();
     }
 
     public void clickReOrderLink() {
         driver.findElement(ReOrderLink).click();
     }
+
     public void vieworderLink() {
         driver.findElement(vieworderLink).click();
     }
+
     public void printorderLink() {
         driver.findElement(printorderLink).click();
     }
@@ -110,6 +114,7 @@ public class CartPage {
     public void clickMyOrdersLink() {
         driver.findElement(MyOrdersLink).click();
     }
+
     public void clickQTyLink() {
         driver.findElement(QTyLink).click();
     }
@@ -124,9 +129,10 @@ public class CartPage {
         driver.findElement(UpdateLink).click();
     }
 
-    public String getGrandTotalBefore(){
+    public String getGrandTotalBefore() {
         String GrantotalBefore = driver.findElement(GrandTotalBeforeLink).getText();
         return GrantotalBefore;
     }
+
 
 }

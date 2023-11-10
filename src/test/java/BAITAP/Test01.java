@@ -1,18 +1,14 @@
 package BAITAP;
 
-import driver.driverFactory;
 import driver.driverFactory_Firefox;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
 import java.io.File;
-import java.time.Duration;
+
 @Test
 public class Test01 {
     public static void test01() {
@@ -33,20 +29,20 @@ public class Test01 {
             }
 
 
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
             driver.findElement(By.linkText("MOBILE")).click();
-            Thread.sleep(2000);
+            Thread.sleep(1000);
             new Select(driver.findElement(By.cssSelector("select[title=\"Sort By\"]"))).selectByVisibleText("Name");
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
 
-            File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+            File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
             String png = ("E:\\selenium-webdriver-java\\src\\test\\java\\BAITAP\\test01.png");
 
 
-                   FileUtils.copyFile(srcFile, new File(png));
+            FileUtils.copyFile(srcFile, new File(png));
         } catch (Exception e) {
             e.printStackTrace();
         }

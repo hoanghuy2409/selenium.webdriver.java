@@ -3,33 +3,30 @@ package BAITAP;
 import POM.CartPage;
 import POM.CheckoutPage;
 import POM.LoginPage;
-import POM.RegisterPage;
-import driver.driverFactory;
 import driver.driverFactory_Firefox;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.testng.annotations.Test;
+
 import java.io.File;
+
 import org.openqa.selenium.support.ui.Select;
 
-import static org.testng.AssertJUnit.assertEquals;
 
 @Test
 public class Test06 {
     public static void test06() {
 
 
-        String email_address ="thh@gmail.com";
+        String email_address = "thh@gmail.com";
         String password = "hoanghuy";
         String country = "United States";
         String provice = "Florida";
         String zipid = "1234";
-        String address ="Long Thanh - Vinh Loi - Bac Lieu";
+        String address = "Long Thanh - Vinh Loi - Bac Lieu";
         String city = "TP Bac Lieu";
         String telephone = "0812281545";
         String newadress = "New Address";
-
-
 
 
         WebDriver driver = driverFactory_Firefox.getFireFoxDriver();
@@ -50,7 +47,7 @@ public class Test06 {
             loginPage.clickloginButton();
             Thread.sleep(1000);
 
-            for(String handle: driver.getWindowHandles()){
+            for (String handle : driver.getWindowHandles()) {
                 driver.switchTo().window(handle);
             }
 
@@ -59,7 +56,7 @@ public class Test06 {
             cartPage.clickmyWishListLink();
             Thread.sleep(1000);
 
-            for(String handle: driver.getWindowHandles()){
+            for (String handle : driver.getWindowHandles()) {
                 driver.switchTo().window(handle);
             }
 
@@ -89,9 +86,9 @@ public class Test06 {
             System.out.println("Giá tổng số sau khi cập nhật chi phí vận chuyển là: " + grandtotalwithupdate);
             Thread.sleep(1000);
             cartPage.clickproceedLink();
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
-            for(String handle: driver.getWindowHandles()){
+            for (String handle : driver.getWindowHandles()) {
                 driver.switchTo().window(handle);
             }
 
@@ -113,34 +110,32 @@ public class Test06 {
             checkOutPage.enterTelephone(telephone);
             Thread.sleep(1000);
             checkOutPage.clickContinuebutton();
-            Thread.sleep(2000);
-            for(String handle: driver.getWindowHandles()){
+            Thread.sleep(1000);
+            for (String handle : driver.getWindowHandles()) {
                 driver.switchTo().window(handle);
             }
             checkOutPage.clickshippinginformationLink();
-            Thread.sleep(2000);
+            Thread.sleep(1000);
             checkOutPage.clickContinuebutton2();
-            Thread.sleep(2000);
+            Thread.sleep(1000);
             checkOutPage.clickContinuebutton3();
-            Thread.sleep(2000);
+            Thread.sleep(1000);
             checkOutPage.click_check_money_order();
-            Thread.sleep(2000);
+            Thread.sleep(1000);
             checkOutPage.clickContinuebutton4();
-            Thread.sleep(2000);
+            Thread.sleep(1000);
             checkOutPage.clickplaceorderLink();
-            Thread.sleep(3000);
+            Thread.sleep(1000);
 
             String OrderId = checkOutPage.getOrderId();
             System.out.println("Đơn hàng đã được tạo với ID: " + OrderId);
-            for(String handle: driver.getWindowHandles()){
+            for (String handle : driver.getWindowHandles()) {
                 driver.switchTo().window(handle);
             }
-            File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+            File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             String png = ("E:\\selenium-webdriver-java\\src\\test\\java\\BAITAP\\test06.png");
             FileUtils.copyFile(srcFile, new File(png));
-            Thread.sleep(2000);
-
-
+            Thread.sleep(1000);
 
         } catch (Exception e) {
             e.printStackTrace();

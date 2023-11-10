@@ -51,7 +51,7 @@ public class Test07 {
             for(String handle: driver.getWindowHandles()){
                 driver.switchTo().window(handle);
             }
-            Thread.sleep(1000);
+            Thread.sleep(2000);
 
             File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
             String png = ("E:\\selenium-webdriver-java\\src\\test\\java\\BAITAP\\test07.png");

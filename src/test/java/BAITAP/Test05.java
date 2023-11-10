@@ -16,7 +16,7 @@ public class Test05 {
 
         String firstname = "HHHuy";
         String lastname = "Trann";
-        String email_address = "HHHuytrann24091@gmail.com";
+        String email_address = "HHHuytrann24092@gmail.com";
         String password = "huytran";
         String confirm_password = password;
 

@@ -21,7 +21,7 @@ public class Test10 {
         String csv = "CSV";
         String OrderId = "1";
         String From = "11/7/2023";
-        String To = "11/8/2023";
+        String To = "11/11/2023";
 
 
 
@@ -59,7 +59,7 @@ public class Test10 {
             adminPanelPage.enterToLink(To);
             Thread.sleep(1000);
             adminPanelPage.clickSearchLink();
-            Thread.sleep(2000);
+            Thread.sleep(3000);
             File srcFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
             String png = ("E:\\selenium-webdriver-java\\src\\test\\java\\BAITAP\\test10.png");
             FileUtils.copyFile(srcFile, new File(png));

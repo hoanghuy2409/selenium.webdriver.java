@@ -35,7 +35,7 @@ public class Test03 {
             String error = driver.findElement(By.xpath(" //p[@class='item-msg error']")).getText();
             System.out.println(error);
             try {
-                AssertJUnit.assertEquals("* The maximum quantity allowed for purchase is 500.", error);
+                AssertJUnit.assertEquals("The requested quantity for \"Sony Xperia\" is not available", error);
 
 
             } catch (Error e) {

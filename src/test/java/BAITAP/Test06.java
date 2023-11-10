@@ -86,7 +86,7 @@ public class Test06 {
             System.out.println("Giá tổng số sau khi cập nhật chi phí vận chuyển là: " + grandtotalwithupdate);
             Thread.sleep(1000);
             cartPage.clickproceedLink();
-            Thread.sleep(1000);
+            Thread.sleep(2000);
 
             for (String handle : driver.getWindowHandles()) {
                 driver.switchTo().window(handle);
@@ -94,38 +94,38 @@ public class Test06 {
 
             CheckoutPage checkOutPage = new CheckoutPage(driver);
             checkOutPage.clickselecbillingadress();
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             Select drpselect = new Select(driver.findElement(checkOutPage.chooseAddress()));
             drpselect.selectByVisibleText(newadress);
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             checkOutPage.enterAddress(address);
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             checkOutPage.enterCity(city);
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             checkOutPage.enterZIP(zipid);
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             Select chooseCountry = new Select(driver.findElement(checkOutPage.chooseCountry()));
             chooseCountry.selectByIndex(1);
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             checkOutPage.enterTelephone(telephone);
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             checkOutPage.clickContinuebutton();
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             for (String handle : driver.getWindowHandles()) {
                 driver.switchTo().window(handle);
             }
             checkOutPage.clickshippinginformationLink();
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             checkOutPage.clickContinuebutton2();
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             checkOutPage.clickContinuebutton3();
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             checkOutPage.click_check_money_order();
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             checkOutPage.clickContinuebutton4();
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             checkOutPage.clickplaceorderLink();
-            Thread.sleep(1000);
+            Thread.sleep(2000);
 
             String OrderId = checkOutPage.getOrderId();
             System.out.println("Đơn hàng đã được tạo với ID: " + OrderId);
